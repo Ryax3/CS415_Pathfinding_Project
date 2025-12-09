@@ -25,9 +25,7 @@ namespace
     };
 }
 
-// ============================================================
-//                      BFS (Correct)
-// ============================================================
+// BFS
 
 SearchResult run_bfs(const BMPImage &img, const Pixel &start, const Pixel &goal)
 {
@@ -101,9 +99,7 @@ SearchResult run_bfs(const BMPImage &img, const Pixel &start, const Pixel &goal)
     return result;
 }
 
-// ============================================================
-//                Best-First Search (A*) — Corrected
-// ============================================================
+// Best-First Search (A*)
 
 SearchResult run_best_first(const BMPImage &img, const Pixel &start, const Pixel &goal)
 {
@@ -146,16 +142,12 @@ SearchResult run_best_first(const BMPImage &img, const Pixel &start, const Pixel
         int r = cur.row;
         int c = cur.col;
 
-        // ---------------------------------------------------------------
-        // Ignore outdated PQ entries (g-value has changed since push)
-        // ---------------------------------------------------------------
+        // Ignore outdated PQ entries
         int expected_f = g[r][c] + manhattan(Pixel{r, c}, goal);
         if (cur.f != expected_f)
             continue;
 
-        // ---------------------------------------------------------------
         // Finalize node
-        // ---------------------------------------------------------------
         if (result.visited[r][c])
             continue;
 

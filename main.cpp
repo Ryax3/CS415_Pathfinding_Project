@@ -50,17 +50,17 @@ Pixel askPixel(const std::string &label, const BMPImage &img)
         if (std::cin.fail())
         {
             clearInput();
-            std::cout << "❌ Invalid input. Enter two integers.\n";
+            std::cout << "Invalid input. Enter two integers.\n";
             continue;
         }
         if (!in_bounds(img, p.row, p.col))
         {
-            std::cout << "❌ Pixel out of bounds.\n";
+            std::cout << "Pixel out of bounds.\n";
             continue;
         }
         if (!is_vertex(img, p.row, p.col))
         {
-            std::cout << "❌ Pixel is NOT walkable (too dark/wall).\n";
+            std::cout << "Pixel is NOT walkable (too dark/wall).\n";
             continue;
         }
         break;
@@ -139,7 +139,7 @@ int main()
         if (std::cin.fail())
         {
             clearInput();
-            std::cout << "❌ Invalid option.\n";
+            std::cout << "Invalid option.\n";
             continue;
         }
 
@@ -195,7 +195,7 @@ int main()
 
             if (fnum < 1 || fnum > (int)files.size())
             {
-                std::cout << "❌ Invalid selection.\n";
+                std::cout << "Invalid selection.\n";
                 continue;
             }
 
@@ -204,7 +204,7 @@ int main()
 
             if (!img.load(fullpath))
             {
-                std::cout << "❌ Could not load file.\n";
+                std::cout << "Could not load file.\n";
                 continue;
             }
 
@@ -214,7 +214,7 @@ int main()
 
         else
         {
-            std::cout << "❌ Invalid option.\n";
+            std::cout << "Invalid option.\n";
         }
     }
 
